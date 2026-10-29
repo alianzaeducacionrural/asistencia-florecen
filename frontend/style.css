@@ -3,7 +3,7 @@
 body{margin:0;font:16px/1.5 Nunito,system-ui,sans-serif;color:var(--txt);background:radial-gradient(circle at 20% 0,var(--bg2),var(--bg) 60%) fixed var(--bg)}
 main{max-width:680px;margin:0 auto;padding:0 16px 32px}
 .hero{display:flex;align-items:center;justify-content:center;gap:8px;padding-top:16px}
-.hero img{width:50%;max-width:300px;height:auto;border-radius:16px;-webkit-mask-image:radial-gradient(closest-side,#000 80%,transparent);mask-image:radial-gradient(closest-side,#000 80%,transparent)}
+.hero img{width:50%;max-width:300px;height:auto;border-radius:16px}
 .evento{text-align:center;margin:8px 0 20px}
 .evento p{margin:4px 0}
 .evento strong{color:var(--yel)}
