@@ -32,15 +32,17 @@
       <input name="nombre" required maxlength="150" autocomplete="name">
     </label>
 
-    <fieldset>
-      <legend>Tipo de participante *</legend>
-      <label class="opt"><input type="radio" name="tipo" value="Asistente / Invitado(a)" required> Asistente / Invitado(a)</label>
-      <label class="opt"><input type="radio" name="tipo" value="Docente"> Docente</label>
-      <label class="opt"><input type="radio" name="tipo" value="Directivo docente"> Directivo docente</label>
-      <label class="opt"><input type="radio" name="tipo" value="Estudiante"> Estudiante</label>
-      <label class="opt"><input type="radio" name="tipo" value="Padre, madre o acudiente"> Padre, madre o acudiente</label>
-      <label class="opt"><input type="radio" name="tipo" value="Representante de entidad o aliado"> Representante de entidad o aliado</label>
-    </fieldset>
+    <label>Tipo de participante *
+      <select name="tipo" required>
+        <option value="">Selecciona una opción</option>
+        <option>Asistente / Invitado(a)</option>
+        <option>Docente</option>
+        <option>Directivo docente</option>
+        <option>Estudiante</option>
+        <option>Padre, madre o acudiente</option>
+        <option>Representante de entidad o aliado</option>
+      </select>
+    </label>
 
     <label>Institución educativa u organización
       <input name="institucion" maxlength="150" autocomplete="organization">
