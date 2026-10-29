@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Panel · Caldas y Manizales Florecen</title>
+<meta name="theme-color" content="#14204f">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+main{max-width:900px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;text-align:center}
+.kpi b{display:block;font:800 2.4rem 'Baloo 2',sans-serif;color:var(--yel);line-height:1.1}
+.kpi span{color:var(--sub);font-size:.9rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px}
+.card h2{margin-top:0}
+.fila{display:grid;grid-template-columns:minmax(90px,38%) 1fr 36px;gap:8px;align-items:center;font-size:.92rem;margin:6px 0}
+.barra{height:12px;background:#12204f;border-radius:6px;overflow:hidden}
+.barra i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--pink));border-radius:6px;transition:width .4s}
+.fila em{font-style:normal;font-weight:700;text-align:right;color:var(--yel)}
+.rec{display:flex;gap:8px;font-size:.9rem;padding:6px 0;border-bottom:1px solid var(--line)}
+.rec small{color:var(--sub)}
+.rec time{color:var(--pink);flex:none;font-variant-numeric:tabular-nums}
+#estado{text-align:center;color:var(--sub);font-size:.85rem;min-height:1.4em}
+#login{max-width:360px;margin:60px auto}
+</style>
+</head>
+<body>
+<main>
+  <h1 style="margin-top:20px">Panel de asistencia en vivo</h1>
+  <form id="login" hidden>
+    <label>Clave del panel
+      <input id="clave" type="password" autocomplete="current-password" required>
+    </label>
+    <p id="msg" role="alert"></p>
+    <button type="submit">Entrar</button>
+  </form>
+  <div id="panel" hidden>
+    <div class="kpis">
+      <div class="kpi"><b id="total">0</b><span>Registrados</span></div>
+      <div class="kpi"><b id="munis">0</b><span>Municipios</span></div>
+      <div class="kpi"><b id="img">0</b><span>Autorizan imagen</span></div>
+    </div>
+    <div class="grid">
+      <section class="card"><h2>Por municipio</h2><div id="porMunicipio"></div></section>
+      <section class="card"><h2>Por tipo de participante</h2><div id="porTipo"></div></section>
+      <section class="card"><h2>Últimos registros</h2><div id="recientes"></div></section>
+    </div>
+  </div>
+  <p id="estado"></p>
+</main>
+<script src="config.js"></script>
+<script src="panel.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Caldas y Manizales Florecen · Asistencia</title>
+<meta name="theme-color" content="#14204f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header class="hero">
+    <img class="titulo" src="assets/titulo.jpg" alt="Caldas y Manizales florecen con Educación, Tecnología y Creatividad 2026">
+    <img class="flor" src="assets/flor.jpg" alt="" aria-hidden="true">
+  </header>
+
+  <section class="evento">
+    <p><strong>29 oct 2026</strong> · Recinto del Pensamiento, Pabellón de Madera · 8:00 a. m. a 12:00 m.</p>
+    <p class="lema">Un encuentro para celebrar el talento, la educación y las experiencias que transforman nuestros territorios.</p>
+  </section>
+
+  <form id="form" novalidate>
+    <h1>Formulario de asistencia y autorización</h1>
+
+    <h2><span>1</span> Registro de asistencia</h2>
+    <p class="nota">Los campos marcados con * son obligatorios.</p>
+
+    <label>Nombre completo *
+      <input name="nombre" required maxlength="150" autocomplete="name">
+    </label>
+
+    <fieldset>
+      <legend>Tipo de participante *</legend>
+      <label class="opt"><input type="radio" name="tipo" value="Asistente / Invitado(a)" required> Asistente / Invitado(a)</label>
+      <label class="opt"><input type="radio" name="tipo" value="Docente"> Docente</label>
+      <label class="opt"><input type="radio" name="tipo" value="Directivo docente"> Directivo docente</label>
+      <label class="opt"><input type="radio" name="tipo" value="Estudiante"> Estudiante</label>
+      <label class="opt"><input type="radio" name="tipo" value="Padre, madre o acudiente"> Padre, madre o acudiente</label>
+      <label class="opt"><input type="radio" name="tipo" value="Representante de entidad o aliado"> Representante de entidad o aliado</label>
+    </fieldset>
+
+    <label>Institución educativa u organización
+      <input name="institucion" maxlength="150" autocomplete="organization">
+    </label>
+    <label>Municipio *
+      <input name="municipio" required maxlength="100" autocomplete="address-level2">
+    </label>
+    <label>Correo electrónico
+      <input name="correo" type="email" maxlength="150" autocomplete="email" inputmode="email">
+    </label>
+    <label>Número de contacto
+      <input name="telefono" type="tel" maxlength="30" autocomplete="tel" inputmode="tel">
+    </label>
+    <label>Documento de identidad
+      <input name="documento" maxlength="30" inputmode="numeric">
+    </label>
+
+    <h2><span>2</span> Autorización para el tratamiento de datos personales</h2>
+    <p class="legal">La entidad organizadora tratará los datos personales suministrados para gestionar el registro de asistencia, la organización del evento, la elaboración de informes y las comunicaciones relacionadas con Caldas y Manizales Florecen, conforme a la Ley 1581 de 2012 y demás normas aplicables. El titular podrá ejercer sus derechos de consulta, actualización, rectificación y supresión, cuando proceda, y conocer la política de tratamiento de datos de la entidad responsable.</p>
+    <label class="opt"><input type="checkbox" name="autorizaDatos" required> Autorizo de manera previa, expresa e informada el tratamiento de mis datos personales para las finalidades descritas, conforme a la política de tratamiento de datos de la entidad responsable. *</label>
+
+    <h2><span>3</span> Autorización para el uso de imagen, voz y video</h2>
+    <p class="legal">Durante el evento podrán realizarse fotografías, grabaciones de video y registros de voz para documentar las actividades y divulgar sus resultados en medios institucionales, páginas web, redes sociales, informes y piezas de comunicación de la entidad organizadora y sus aliados autorizados. El uso deberá respetar la dignidad, los derechos y las finalidades informadas, sin usos distintos a los autorizados.</p>
+    <fieldset>
+      <legend class="sr">Autorización de imagen, voz y video *</legend>
+      <label class="opt"><input type="radio" name="autorizaImagen" value="si" required> Sí, autorizo el uso de mi imagen, voz y/o video para las finalidades descritas.</label>
+      <label class="opt"><input type="radio" name="autorizaImagen" value="no"> No autorizo el uso de mi imagen, voz y/o video.</label>
+    </fieldset>
+
+    <input class="hp" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p id="msg" role="alert" aria-live="polite"></p>
+    <button id="enviar" type="submit">Registrar asistencia</button>
+  </form>
+
+  <section id="ok" hidden>
+    <img src="assets/flor.jpg" alt="" aria-hidden="true">
+    <h1 id="ok-titulo">¡Registro exitoso!</h1>
+    <p id="ok-texto">Gracias por registrar tu asistencia. ¡Te esperamos!</p>
+  </section>
+
+  <footer>
+    <img src="assets/comite.jpg" alt="Federación Nacional de Cafeteros · Comité de Cafeteros de Caldas">
+    <img src="assets/educacion.jpg" alt="Educación para la Competitividad · Alianza público privada">
+  </footer>
+</main>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
