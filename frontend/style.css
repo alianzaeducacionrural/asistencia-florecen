@@ -18,6 +18,10 @@ main{max-width:680px;margin:0 auto;padding:0 16px 32px}
 .evento strong{color:var(--yel)}
 .lema{color:var(--sub)}
 form,#ok{background:#fbf8ef;color:#14204f;border:1px solid #e3dcc6;border-radius:20px;padding:20px;--line:#c9c2ae;--sub:#4b5683;--yel:#14204f;--pink:#c2457f;--err:#c62828}
+.auth{background:#e6f2fa;border:1px solid #bcd9ec;border-radius:16px;padding:4px 16px 12px;margin:20px 0}
+.auth h2{margin-top:12px}
+.auth .opt{background:#fff;border-color:#bcd9ec}
+.auth .opt:has(input:checked){background:#fff4cf;border-color:#e0a500}
 h1,h2{font-family:'Baloo 2',sans-serif;line-height:1.2}
 h1{font-size:1.5rem;margin:0 0 8px;color:var(--yel)}
 h2{font-size:1.15rem;margin:28px 0 8px;display:flex;gap:10px;align-items:center;color:var(--pink)}

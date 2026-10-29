@@ -102,10 +102,14 @@
       <input name="documento" maxlength="30" inputmode="numeric">
     </label>
 
+    <section class="auth">
     <h2><span>2</span> Autorización para el tratamiento de datos personales</h2>
     <p class="legal">La entidad organizadora tratará los datos personales suministrados para gestionar el registro de asistencia, la organización del evento, la elaboración de informes y las comunicaciones relacionadas con Caldas y Manizales Florecen, conforme a la Ley 1581 de 2012 y demás normas aplicables. El titular podrá ejercer sus derechos de consulta, actualización, rectificación y supresión, cuando proceda, y conocer la política de tratamiento de datos de la entidad responsable.</p>
     <label class="opt"><input type="checkbox" name="autorizaDatos" required> Autorizo de manera previa, expresa e informada el tratamiento de mis datos personales para las finalidades descritas, conforme a la política de tratamiento de datos de la entidad responsable. *</label>
 
+    </section>
+
+    <section class="auth">
     <h2><span>3</span> Autorización para el uso de imagen, voz y video</h2>
     <p class="legal">Durante el evento podrán realizarse fotografías, grabaciones de video y registros de voz para documentar las actividades y divulgar sus resultados en medios institucionales, páginas web, redes sociales, informes y piezas de comunicación de la entidad organizadora y sus aliados autorizados. El uso deberá respetar la dignidad, los derechos y las finalidades informadas, sin usos distintos a los autorizados.</p>
     <fieldset>
@@ -113,6 +117,8 @@
       <label class="opt"><input type="radio" name="autorizaImagen" value="si" required> Sí, autorizo el uso de mi imagen, voz y/o video para las finalidades descritas.</label>
       <label class="opt"><input type="radio" name="autorizaImagen" value="no"> No autorizo el uso de mi imagen, voz y/o video.</label>
     </fieldset>
+
+    </section>
 
     <input class="hp" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
     <p id="msg" role="alert" aria-live="polite"></p>
