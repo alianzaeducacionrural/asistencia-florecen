@@ -1,7 +1,4 @@
-const KEY = 'florecen-panel';
 const $ = id => document.getElementById(id);
-let clave = '';
-try { clave = sessionStorage.getItem(KEY) || ''; } catch {}
 
 // textContent en vez de innerHTML: nombres y municipios vienen de usuarios.
 function barras(el, items) {
@@ -37,25 +34,14 @@ function render(d) {
 
 async function cargar() {
   try {
-    const r = await (await fetch(window.APPS_SCRIPT_URL + '?action=stats&token=' + encodeURIComponent(clave))).json();
+    const r = await (await fetch(window.APPS_SCRIPT_URL + '?action=stats')).json();
     if (!r.ok) throw new Error(r.error);
-    $('login').hidden = true; $('panel').hidden = false;
-    try { sessionStorage.setItem(KEY, clave); } catch {}
+    $('panel').hidden = false;
     render(r);
-    return true;
-  } catch (e) {
-    if (!$('panel').hidden) { $('estado').textContent = 'Sin conexión, reintentando…'; return true; }
-    $('login').hidden = false;
-    $('msg').textContent = clave ? (e.message || 'No se pudo conectar.') : '';
-    return false;
+  } catch {
+    $('estado').textContent = 'Sin conexión, reintentando…';
   }
 }
 
-$('login').addEventListener('submit', async e => {
-  e.preventDefault();
-  clave = $('clave').value.trim();
-  if (await cargar()) setInterval(cargar, 10000);
-});
-
-if (clave) cargar().then(ok => ok && setInterval(cargar, 10000));
-else $('login').hidden = false;
+cargar();
+setInterval(cargar, 10000);

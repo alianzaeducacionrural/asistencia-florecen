@@ -25,19 +25,11 @@ main{max-width:900px}
 .rec small{color:var(--sub)}
 .rec time{color:var(--pink);flex:none;font-variant-numeric:tabular-nums}
 #estado{text-align:center;color:var(--sub);font-size:.85rem;min-height:1.4em}
-#login{max-width:360px;margin:60px auto}
 </style>
 </head>
 <body>
 <main>
   <h1 style="margin-top:20px">Panel de asistencia en vivo</h1>
-  <form id="login" hidden>
-    <label>Clave del panel
-      <input id="clave" type="password" autocomplete="current-password" required>
-    </label>
-    <p id="msg" role="alert"></p>
-    <button type="submit">Entrar</button>
-  </form>
   <div id="panel" hidden>
     <div class="kpis">
       <div class="kpi"><b id="total">0</b><span>Registrados</span></div>

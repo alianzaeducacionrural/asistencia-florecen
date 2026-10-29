@@ -154,7 +154,7 @@ class Panel {
       porTipo: orden(tipos),
       recientes: filas.slice(-15).reverse().map(f => ({
         fecha: Utilities.formatDate(new Date(f[0]), 'America/Bogota', 'HH:mm:ss'),
-        nombre: f[2], municipio: f[5], tipo: f[3]
+        nombre: String(f[2]).trim().split(/\s+/).slice(0, 2).map((w, i) => (i ? w[0] + '.' : w)).join(' '), municipio: f[5], tipo: f[3]
       })),
       actualizado: Utilities.formatDate(new Date(), 'America/Bogota', 'HH:mm:ss')
     };
@@ -166,8 +166,6 @@ class Panel {
 function doGet(e) {
   const p = (e && e.parameter) || {};
   if (p.action === 'stats') {
-    const token = PropertiesService.getScriptProperties().getProperty('PANEL_TOKEN');
-    if (!token || p.token !== token) return json_({ ok: false, error: 'Clave del panel incorrecta.' });
     try {
       return json_(Panel.resumen());
     } catch (err) {
@@ -178,10 +176,7 @@ function doGet(e) {
   return json_({ ok: true, service: 'Caldas y Manizales Florecen - asistencia' });
 }
 
-// Ejecutar una vez desde el editor: crea la hoja, autoriza permisos y genera la clave del panel.
+// Ejecutar una vez desde el editor: crea la hoja y autoriza permisos.
 function setup() {
-  const props = PropertiesService.getScriptProperties();
-  if (!props.getProperty('PANEL_TOKEN')) props.setProperty('PANEL_TOKEN', Utilities.getUuid().replace(/-/g, '').slice(0, 12));
   Logger.log('Hoja: ' + Hoja.obtener().getParent().getUrl());
-  Logger.log('Clave del panel: ' + props.getProperty('PANEL_TOKEN'));
 }
