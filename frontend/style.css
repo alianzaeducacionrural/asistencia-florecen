@@ -4,6 +4,13 @@ body{margin:0;font:16px/1.5 Nunito,system-ui,sans-serif;color:var(--txt);backgro
 main{max-width:680px;margin:0 auto;padding:0 16px 32px}
 .hero{display:flex;align-items:center;justify-content:center;gap:8px;padding-top:16px}
 .hero img{width:50%;max-width:300px;height:auto;border-radius:16px}
+.titulo{display:flex;flex-direction:column;flex:1;min-width:0;font-family:'Baloo 2',sans-serif;line-height:1}
+.titulo .t1{font-size:clamp(1.6rem,6.5vw,2.4rem);font-weight:700;color:#ffc947}
+.titulo i{font-style:normal;color:#f4a0c4;margin-left:6px}
+.titulo .t2{font-size:clamp(2.4rem,11vw,4rem);font-weight:800;color:#f6f1e3;letter-spacing:-1px;margin:2px 0 8px;padding-bottom:8px;border-bottom:2px solid #3fa6dd}
+.titulo .t3{font:600 clamp(.8rem,3vw,1rem)/1.3 Nunito,sans-serif;color:#3fa6dd}
+.titulo .t3 b{color:#f4a0c4}
+.titulo .t4{font-weight:800;font-size:1.3rem;letter-spacing:.35em;color:#ffc947;margin-top:6px}
 .evento{text-align:center;margin:8px 0 20px}
 .evento p{margin:4px 0}
 .evento strong{color:var(--yel)}
