@@ -9,37 +9,58 @@
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-main{max-width:900px}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
-.kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;text-align:center}
-.kpi b{display:block;font:800 2.4rem 'Baloo 2',sans-serif;color:var(--yel);line-height:1.1}
-.kpi span{color:var(--sub);font-size:.9rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px}
-.card h2{margin-top:0}
-.fila{display:grid;grid-template-columns:minmax(90px,38%) 1fr 36px;gap:8px;align-items:center;font-size:.92rem;margin:6px 0}
-.barra{height:12px;background:#12204f;border-radius:6px;overflow:hidden}
-.barra i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--pink));border-radius:6px;transition:width .4s}
-.fila em{font-style:normal;font-weight:700;text-align:right;color:var(--yel)}
-.rec{display:flex;gap:8px;font-size:.9rem;padding:6px 0;border-bottom:1px solid var(--line)}
-.rec small{color:var(--sub)}
-.rec time{color:var(--pink);flex:none;font-variant-numeric:tabular-nums}
-#estado{text-align:center;color:var(--sub);font-size:.85rem;min-height:1.4em}
+body{background:#f4f1e8;color:#14204f}
+:root{--sub:#4b5683}
+main{max-width:1000px;padding-top:20px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.top h1{margin:0;color:#14204f;font-size:1.6rem}
+.top h1 span{color:#c2457f}
+.live{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--sub);background:#fff;border:1px solid #ddd6c0;border-radius:999px;padding:6px 14px}
+.live::before{content:"";width:9px;height:9px;border-radius:50%;background:#5be28a;box-shadow:0 0 0 0 #5be28a88;animation:pulso 2s infinite}
+.live.off::before{background:#ff8a8a;animation:none}
+@keyframes pulso{70%{box-shadow:0 0 0 8px #5be28a00}100%{box-shadow:0 0 0 0 #5be28a00}}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin:20px 0}
+.kpi{background:#fff;border:1px solid #ddd6c0;border-top:4px solid var(--c,#ffc947);border-radius:16px;padding:16px}
+.kpi span{display:block;color:var(--sub);font-size:.85rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.kpi b{display:block;font:800 2.6rem/1.1 'Baloo 2',sans-serif;color:#14204f}
+.kpi small{color:var(--sub)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:16px}
+.card{background:#fff;border:1px solid #ddd6c0;border-radius:20px;padding:18px}
+.card.ancha{grid-column:1/-1}
+.card h2{margin:0 0 12px;font-size:1.1rem;color:#c2457f}
+.lista{max-height:420px;overflow:auto;padding-right:4px}
+.fila{display:grid;grid-template-columns:22px minmax(80px,34%) 1fr 34px;gap:8px;align-items:center;font-size:.92rem;margin:7px 0}
+.fila .n{color:var(--sub);font-size:.8rem;text-align:right}
+.barra{height:12px;background:#ece7d6;border-radius:6px;overflow:hidden}
+.barra i{display:block;height:100%;background:linear-gradient(90deg,#3fa6dd,#f4a0c4);border-radius:6px;transition:width .5s}
+.fila em{font-style:normal;font-weight:800;text-align:right;color:#14204f}
+.rec{display:flex;gap:12px;align-items:center;padding:8px 0;border-bottom:1px solid #ece7d6;animation:entra .5s}
+@keyframes entra{from{opacity:0;transform:translateY(-6px)}}
+.rec .av{width:34px;height:34px;border-radius:50%;background:#3fa6dd;color:#0c1638;font:800 .95rem 'Baloo 2',sans-serif;display:grid;place-items:center;flex:none}
+.rec div{min-width:0;flex:1;line-height:1.3}
+.rec small{display:block;color:var(--sub)}
+.rec time{color:#c2457f;font-size:.85rem;font-variant-numeric:tabular-nums}
+.vacio{color:var(--sub);text-align:center;padding:20px 0}
+#estado{text-align:center;color:var(--sub);font-size:.85rem;margin-top:16px}
+@media(prefers-reduced-motion:reduce){.live::before,.rec{animation:none}}
 </style>
 </head>
 <body>
 <main>
-  <h1 style="margin-top:20px">Panel de asistencia en vivo</h1>
+  <div class="top">
+    <h1>Panel de asistencia <span>en vivo</span></h1>
+    <div class="live" id="live">Conectando…</div>
+  </div>
   <div id="panel" hidden>
     <div class="kpis">
-      <div class="kpi"><b id="total">0</b><span>Registrados</span></div>
-      <div class="kpi"><b id="munis">0</b><span>Municipios</span></div>
-      <div class="kpi"><b id="img">0</b><span>Autorizan imagen</span></div>
+      <div class="kpi" style="--c:#ffc947"><span>Registrados</span><b id="total">0</b></div>
+      <div class="kpi" style="--c:#3fa6dd"><span>Municipios</span><b id="munis">0</b><small id="lider"></small></div>
+      <div class="kpi" style="--c:#f4a0c4"><span>Autorizan imagen</span><b id="img">0</b><small id="imgPct"></small></div>
     </div>
     <div class="grid">
-      <section class="card"><h2>Por municipio</h2><div id="porMunicipio"></div></section>
-      <section class="card"><h2>Por tipo de participante</h2><div id="porTipo"></div></section>
-      <section class="card"><h2>Últimos registros</h2><div id="recientes"></div></section>
+      <section class="card"><h2>Registros por municipio</h2><div class="lista" id="porMunicipio"></div></section>
+      <section class="card"><h2>Tipo de participante</h2><div class="lista" id="porTipo"></div></section>
+      <section class="card ancha"><h2>Últimos registros</h2><div class="lista" id="recientes"></div></section>
     </div>
   </div>
   <p id="estado"></p>
